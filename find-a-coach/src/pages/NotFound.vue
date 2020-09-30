@@ -1,10 +1,10 @@
 <template>
-  <router-view />
+  <div><p>Not Found</p></div>
 </template>
 
 <script>
   export default {
-    name: 'App',
+    name: 'NotFound',
   };
 </script>
 
