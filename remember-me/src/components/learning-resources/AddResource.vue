@@ -33,61 +33,62 @@
 </template>
 
 <script>
-export default {
-  inject: ['addResource'],
-  data() {
-    return {
-      inputIsInvalid: false,
-    };
-  },
-  methods: {
-    submitData() {
-      const enteredTitle = this.$refs.titleInput.value;
-      const enteredDescription = this.$refs.descInput.value;
-      const enteredUrl = this.$refs.linkInput.value;
-
-      if (
-        enteredTitle.trim() === '' ||
-        enteredDescription.trim() === '' ||
-        enteredUrl.trim() === ''
-      ) {
-        this.inputIsInvalid = true;
-        return;
-      }
-
-      this.addResource(enteredTitle, enteredDescription, enteredUrl);
+  export default {
+    name: 'AddResource',
+    inject: ['addResource'],
+    data() {
+      return {
+        inputIsInvalid: false,
+      };
     },
-    confirmError() {
-      this.inputIsInvalid = false;
+    methods: {
+      submitData() {
+        const enteredTitle = this.$refs.titleInput.value;
+        const enteredDescription = this.$refs.descInput.value;
+        const enteredUrl = this.$refs.linkInput.value;
+
+        if (
+          enteredTitle.trim() === '' ||
+          enteredDescription.trim() === '' ||
+          enteredUrl.trim() === ''
+        ) {
+          this.inputIsInvalid = true;
+          return;
+        }
+
+        this.addResource(enteredTitle, enteredDescription, enteredUrl);
+      },
+      confirmError() {
+        this.inputIsInvalid = false;
+      },
     },
-  },
-};
+  };
 </script>
 
 <style scoped>
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 
-input,
-textarea {
-  display: block;
-  width: 100%;
-  font: inherit;
-  padding: 0.15rem;
-  border: 1px solid #ccc;
-}
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.15rem;
+    border: 1px solid #ccc;
+  }
 
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #3a0061;
-  background-color: #f7ebff;
-}
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #3a0061;
+    background-color: #f7ebff;
+  }
 
-.form-control {
-  margin: 1rem 0;
-}
+  .form-control {
+    margin: 1rem 0;
+  }
 </style>
