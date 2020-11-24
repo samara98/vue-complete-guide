@@ -7,14 +7,13 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-// Vue.config.productionTip = false;
+Vue.config.productionTip = false;
 
 Vue.use(VueResource);
 
-// Vue.http.options.root = 'https://vuejs-stock-trader.firebaseio.com/';
-// Vue.http.options.root = '';
+Vue.http.options.root = process.env.VUE_APP_FIREBASE_DB;
 
-Vue.filter('currency', (value) => `$${value.toLocalString()}`);
+Vue.filter('currency', (value) => `$${value}`);
 
 const app = new Vue({
   router,

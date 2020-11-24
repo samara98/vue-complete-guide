@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
+  <b-container fluid>
     <app-header />
-    <div class="row">
-      <div class="col-xs-12">
+    <b-row>
+      <b-col :cols="12">
         <transition name="slide" mode="out-in">
           <router-view />
         </transition>
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

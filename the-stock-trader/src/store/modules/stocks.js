@@ -13,7 +13,11 @@ const mutations = {
     const newStateArg = stateArg;
     newStateArg.stocks.forEach((stockItem) => {
       const newStockItem = stockItem;
-      newStockItem.price = Math.round(newStockItem.price * (1 + Math.random() - 0.5));
+      // eslint-disable-next-line operator-linebreak
+      newStockItem.price =
+        newStockItem.price < 4
+          ? Math.round(newStockItem.price * (2 + Math.random() - 1))
+          : Math.round(newStockItem.price * (1 + Math.random() - 0.25));
     });
   },
 };

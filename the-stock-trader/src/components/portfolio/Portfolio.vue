@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <b-row>
     <app-stock v-for="(stock, idx) in stocks" :stock="stock" :key="idx" />
-  </div>
+  </b-row>
 </template>
 
 <script>

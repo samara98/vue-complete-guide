@@ -4,6 +4,7 @@
   "cursorOffset": -1,
   "embeddedLanguageFormatting": "auto",
   "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "ignore",
   "insertPragma": false,
   "printWidth": 100,
   "proseWrap": "preserve",

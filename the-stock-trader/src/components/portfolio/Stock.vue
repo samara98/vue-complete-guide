@@ -1,34 +1,36 @@
 <template>
-  <div class="col-sm-6 col-md-4">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">
+  <b-col :sm="6" :lg="4" class="mb-4">
+    <b-card>
+      <b-card-header header-text-variant="info">
+        <b-card-title>
           {{ stock.name }}
-          <small>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</small>
-        </h3>
-      </div>
-      <div class="panel-body">
-        <div class="pull-left">
-          <input
+          <b-card-text>
+            <small>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</small>
+          </b-card-text>
+        </b-card-title>
+      </b-card-header>
+      <b-card-body>
+        <b-input-group>
+          <b-input
             type="number"
-            class="form-control"
             placeholder="Quantity"
             v-model="quantity"
             :class="{ danger: insufficientQuantity }"
           />
-        </div>
-        <div class="pull-right">
-          <button
-            class="btn btn-success"
-            @click="sellStock"
-            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
-          >
-            {{ insufficientQuantity ? 'Not enough' : 'Sell' }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+          <template #append>
+            <b-btn
+              variant="success"
+              @click="sellStock"
+              :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(+quantity)"
+            >
+              {{ insufficientQuantity ? 'Not enough' : 'Sell' }}
+            </b-btn>
+          </template>
+        </b-input-group>
+      </b-card-body>
+    </b-card>
+  </b-col>
 </template>
 
 <style scoped>

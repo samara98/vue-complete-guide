@@ -19,4 +19,4 @@ const loadData = ({ commit }) => {
     });
 };
 
-export default loadData;
+export default { loadData };
